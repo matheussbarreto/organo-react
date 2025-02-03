@@ -4,7 +4,7 @@ import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../ListaSuspensa';
 import './Formulario.css';
 
-const Formulario = (props) => {
+const Formulario = ({aoCadastrar, times}) => {
 
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
@@ -13,7 +13,8 @@ const Formulario = (props) => {
     
     const aoSalvar = (evento) => {
         evento.preventDefault();
-        props.aoColaboradorCadastrado({
+        console.log('form enviado', nome, cargo, imagem, time)
+        aoCadastrar({
             nome,
             cargo,
             imagem,
@@ -51,9 +52,9 @@ const Formulario = (props) => {
                 />
                 <ListaSuspensa 
                     obrigatorio={true} 
-                    label="Time" 
+                    label="Times" 
                     placeholder="Selecione um time"
-                    itens={props.times} 
+                    itens={times} 
                     valor={time}
                     aoAlterar={valor => setTime(valor)}
                 />
