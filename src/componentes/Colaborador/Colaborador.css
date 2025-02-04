@@ -1,11 +1,13 @@
 .colaborador {
+    position: relative;
     width: 280px;
 }
 
 .colaborador .cabecalho {
-    background-color:  #F0F0F0;
+    background-color: #F0F0F0;
     border-radius: 10px 10px 0px 0px;
 }
+
 .colaborador img {
     width: 100px;
     border-radius: 50%;
@@ -17,8 +19,7 @@
     background: #FFFFFF;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 10px 10px;
-    padding-top: 90px;
-    padding-bottom: 40px;
+    padding: 50px 20px 40px;
 }
 
 .colaborador .rodape h4 {
@@ -33,5 +34,16 @@
     font-size: 18px;
     line-height: 22px;
     color: #212121;
-    padding: 0 16px;
+    margin: 10px auto;
+}
+
+.colaborador .deletar {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    cursor: pointer;
+    transition: .3s;
+}
+.colaborador .deletar:hover {
+    transform: scale(1.1);
 }
