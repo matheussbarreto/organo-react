@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import Botao from '../Botao';
-import CampoTexto from '../CampoTexto';
+import Campo from '../Campo';
 import ListaSuspensa from '../ListaSuspensa';
 import './Formulario.css';
 
-const Formulario = ({aoCadastrar, times}) => {
+const Formulario = ({ aoCadastrar, times, cadastrarTime }) => {
 
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
     const [imagem, setImagem] = useState('');
     const [time, setTime] = useState('');
-    
+    const [nomeDoTime, setNomeDoTime] = useState('');
+    const [corDoTime, setCorDoTime] = useState('');
+
     const aoSalvar = (evento) => {
         evento.preventDefault();
         console.log('form enviado', nome, cargo, imagem, time)
@@ -29,34 +31,58 @@ const Formulario = ({aoCadastrar, times}) => {
         <section className='formulario'>
             <form onSubmit={aoSalvar}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <CampoTexto 
-                    obrigatorio={true} 
-                    label="Nome" 
-                    placeholder="Digite seu nome" 
+                <Campo
+                    obrigatorio={true}
+                    label="Nome"
+                    placeholder="Digite seu nome"
                     valor={nome}
-                    aoAlterar={valor => setNome(valor)}    
+                    aoAlterar={valor => setNome(valor)}
                 />
-                <CampoTexto 
-                    obrigatorio={true} 
-                    label="Cargo" 
-                    placeholder="Digite seu cargo" 
+                <Campo
+                    obrigatorio={true}
+                    label="Cargo"
+                    placeholder="Digite seu cargo"
                     valor={cargo}
-                    aoAlterar={valor => setCargo(valor)} 
+                    aoAlterar={valor => setCargo(valor)}
                 />
-                <CampoTexto 
-                    obrigatorio={true} 
-                    label="Imagem" 
-                    placeholder="Digite o endereço da imagem" 
+                <Campo
+                    obrigatorio={true}
+                    label="Imagem"
+                    placeholder="Digite o endereço da imagem"
                     valor={imagem}
-                    aoAlterar={valor => setImagem(valor)} 
+                    aoAlterar={valor => setImagem(valor)}
                 />
-                <ListaSuspensa 
-                    obrigatorio={true} 
-                    label="Times" 
+                <ListaSuspensa
+                    obrigatorio={true}
+                    label="Times"
                     placeholder="Selecione um time"
-                    itens={times} 
+                    itens={times}
                     valor={time}
                     aoAlterar={valor => setTime(valor)}
+                />
+                <Botao>
+                    Criar time
+                </Botao>
+            </form>
+            <form onSubmit={(evento) => {
+                evento.preventDefault();
+                cadastrarTime({ nome: nomeDoTime, cor: corDoTime })
+            }}>
+                <h2>Preencha os dados para criar um novo time</h2>
+                <Campo
+                    obrigatorio
+                    label="Nome"
+                    placeholder="Digite o nome do time"
+                    valor={nomeDoTime}
+                    aoAlterar={valor => setNomeDoTime(valor)}
+                />
+                <Campo
+                    obrigatorio
+                    type='color'
+                    label="Cor"
+                    placeholder="Digite a cor do time"
+                    valor={corDoTime}
+                    aoAlterar={valor => setCorDoTime(valor)}
                 />
                 <Botao>
                     Criar Card
