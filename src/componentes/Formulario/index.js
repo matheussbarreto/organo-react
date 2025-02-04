@@ -15,7 +15,6 @@ const Formulario = ({ aoCadastrar, times, cadastrarTime }) => {
 
     const aoSalvar = (evento) => {
         evento.preventDefault();
-        console.log('form enviado', nome, cargo, imagem, time)
         aoCadastrar({
             nome,
             cargo,
@@ -69,6 +68,7 @@ const Formulario = ({ aoCadastrar, times, cadastrarTime }) => {
                 cadastrarTime({ nome: nomeDoTime, cor: corDoTime })
             }}>
                 <h2>Preencha os dados para criar um novo time</h2>
+                <p><em>*O time ficará visível quando tiver pelo menos um colaborador cadastrado</em></p>
                 <Campo
                     obrigatorio
                     label="Nome"

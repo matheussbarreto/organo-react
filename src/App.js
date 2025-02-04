@@ -80,7 +80,7 @@ function App() {
     },
     {
       id: uuidv4(),
-      favorito: false,
+      favorito: true,
       nome: 'MATHEUS BARRETO',
       cargo: 'Desenvolvedor Web Front-End',
       imagem: 'https://www.github.com/matheussbarreto.png',
